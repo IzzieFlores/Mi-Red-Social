@@ -193,6 +193,7 @@ $(document).ready(function () {
             .then((docRef) => {
                 // console.log("Document written with ID: ", docRef.id);
                 console.log("SE GUARDO CORRECTAMENTE");
+                window.location.reload();
             })
             .catch((error) => {
                 console.error("Error adding document: ", error);
