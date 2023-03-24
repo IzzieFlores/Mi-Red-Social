@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
     <link rel="stylesheet" href="home.css">
 
@@ -27,13 +27,41 @@
                 <a class="navbar-brand text-white font-monospace">
                     <img src="caramelo.png" alt="Bootstrap" width="30">
                     Mi Red Social
-                  </a>
-                <button class="btn btn-outline-light" id="boton-cerrar" type="button" >Cerrar Sesión</button>
+                </a>
+
+                <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                    Cerrar Sesión
+                </button>
+
+                <!-- <button class=""  type="button"></button> -->
+
             </div>
         </nav>
     </header>
 
     <main>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Perfil</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div id="userInfo" class="text-center font-monospace fs-5 "></div>
+
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="boton-cerrar">YES</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="boton-cerrar">NO</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
         <div class="fondo-imagen py-5 text-light">
             <div class="container py-5 text-center">
                 <h1 class="display-1 p-5 fw-bold" style="font-family: monospace;">Bienvenidos a mi Red Social</h1>
@@ -42,6 +70,7 @@
         </div>
 
         <div class="container py-5">
+            
             <p class="fst-italic fs-3">¿Como te sientes el dia hoy?</p>
         </div>
 
@@ -53,8 +82,9 @@
                 <button class="btn btn-primary mt-2" id="publicar">Publicar</button>
             </form>
         </div>
-
+        
         <div class="container my-5" id="post">
+
             <!-- <div class="card mb-3" style="width: 28rem;">
                     <textarea class="form-control" name=""  cols="30" rows="5"
                     placeholder="Deseas Editar o Eliminar algo...."></textarea>
@@ -69,7 +99,8 @@
     <footer class="bd-footer bg-dark">
         <div class="row row-cols-1 row-cols-md-2 g-4 m-5 p-5">
             <div class="col mb-3 ">
-                <i class="fa-brands fa-facebook icono-lab"></i> <i class="fa-brands fa-twitter"></i> <i class="fa-brands fa-instagram"></i> <i class="fa-brands fa-github"></i>
+                <i class="fa-brands fa-facebook icono-lab"></i> <i class="fa-brands fa-twitter"></i> <i
+                    class="fa-brands fa-instagram"></i> <i class="fa-brands fa-github"></i>
             </div>
             <div class="text-white">
                 <p>CONTACTANOS</p>
@@ -89,7 +120,7 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 
-        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

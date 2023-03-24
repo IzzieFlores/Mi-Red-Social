@@ -110,24 +110,25 @@ $(document).ready(function () {
 
         firebase.auth().signOut().then(() => {
 
-            Swal.fire({
-                title: '¡Alerta!',
-                text: "Seguro que quieres cerrar sesión?",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
+            // Swal.fire({
+            
+            //     title: '¡Alerta!',
+            //     text: "Seguro que quieres cerrar sesión?",
+            //     icon: 'warning',
+            //     showCancelButton: true,
+            //     confirmButtonColor: '#3085d6',
+            //     cancelButtonColor: '#d33',
+            //     confirmButtonText: 'Yes, delete it!'
+            // }).then((result) => {
+            //     if (result.isConfirmed) {
                     window.location.href = "index.html"
-                    Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                    )
-                }
-            })
+            //         Swal.fire(
+            //             'Deleted!',
+            //             'Your file has been deleted.',
+            //             'success'
+            //         )
+            //     }
+            // })
 
 
         })
@@ -234,6 +235,8 @@ $(document).ready(function () {
             var usuario = user.displayName;
             console.log(email, usuario, uid);
             obtenerDatos();
+            infoUser();
+
             // ...
         } else {
             // User is signed out
@@ -291,6 +294,39 @@ $(document).ready(function () {
         });
 
     }
-})
 
-//////////////////////
+     // MOSTRAR INFORMACION DEL USUARIO
+  function infoUser() {
+
+    const user = firebase.auth().currentUser;
+    console.log("HOLA MUNDO", user);
+    var html = "";
+
+    if (user !== null) {
+      var displayName = user.displayName;
+      var email = user.email;
+      var fotoURL = "";
+
+      if (user.photoURL != null) {
+        fotoURL = user.photoURL;
+      } else {
+        fotoURL = "img/userdefault.png";
+      }
+
+      html = `
+        <div>
+            <div>
+                <img id="userPhoto" src="${fotoURL}" style="width: 100px;">
+            </div>
+            <div>
+                <h3>${displayName}</h3>
+                <h4>${email}</h4>
+            </div>
+        </div>
+      `;
+      $("#userInfo").append(html);
+    } else {
+      console.log("error SOS");
+    }
+  }
+})
