@@ -1,0 +1,10 @@
+.fondo-imagen{
+    background-image: url(playa.jpg);
+    background-size: cover;
+}
+
+.col{
+    color: white;
+    font-size: 30px;
+}
+
